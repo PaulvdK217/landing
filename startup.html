@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link href="style.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReBuild Paris - Intro</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --main-green: #0b3d20;
+      --light-pink: #fce4ec;
+    }
+
+    body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-pink);
+}
+
+    #intro-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: var(--light-pink);
+      background-image: url('images/arc.png'), url('images/tour.png');
+      background-repeat: no-repeat, no-repeat;
+      background-position: left center, right center;
+      background-size: 35%, 35%;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .intro-content img {
+      width: 260px;
+      max-width: 70vw;
+      margin-bottom: 40px;
+      animation: pulse 4s infinite ease-in-out;
+    }
+
+    .intro-content h1 {
+      font-size: 2.5rem;
+      color: var(--main-green);
+      margin-bottom: 30px;
+      animation: fadeInUp 2s ease;
+      white-space: nowrap;
+    }
+
+    .intro-content button {
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      border: none;
+      background-color: var(--main-green);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      animation: fadeInUp 2.2s ease;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #main-content {
+      display: none;
+      padding: 50px;
+      background-color: var(--light-pink);
+    }
+
+    @media (max-width: 600px) {
+      .intro-content h1 {
+        font-size: 1.5rem;
+        white-space: normal;
+      }
+
+      .intro-content img {
+        width: 180px;
+      }
+    }
+  
+.source-text {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 8px;
+  color: #555;
+}
+.source-text a {
+  color: #014421;
+  text-decoration: none;
+}
+.source-text a:hover {
+  text-decoration: underline;
+}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+<style>
+  .swiper-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  .swiper-slide {
+    text-align: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+</style>
+<link href="css/banner.css" rel="stylesheet"/></head>
+<body>
+<div class="banner">
+<img alt="Banner Image" src="images/banner.jpg"/>
+<div class="banner-text">
+<h1>ReBuild Paris</h1>
+<p>Building circular cities with technology and vision</p>
+</div>
+</div>
+
+<div id="intro-overlay">
+<div class="intro-content">
+<img alt="ReBuild Paris Logo" src="images/logo.png"/>
+<h1>Reimagining Urban Renewal</h1>
+<button onclick="enterSite()">Discover</button>
+</div>
+</div>
+<div id="main-content" style="opacity: 0; transition: opacity 1s ease; display: none;">
+<!-- FULL SITE CONTENT START -->
+<header>
+<div class="logo">
+<img alt="ReBuild Logo" src="images/logo.png"/>
+      ReBuild Paris
+    </div>
+<nav>
+<a href="#project">The Project</a>
+<a href="#overview">Overview</a>
+<a href="#zurich">Zurich Pilot</a>
+<a href="#video">Video</a>
+<a href="#join">Join Us</a>
+</nav>
+</header>
+<section class="hero" id="project">
+<div class="hero-text">
+<h1>Rebuilding Cities with Circular Intelligence</h1>
+<p>
+        ReBuild Paris transforms urban renovation by identifying, classifying and mapping reusable building components using artificial intelligence.<br/>
+<a class="button-link" href="https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/552226/5/EnablingComponentReuseFromExistingBuildings.pdf" target="_blank">
+          Based on ETH Zurich Research
+        </a>
+</p>
+<button onclick="document.getElementById('join').scrollIntoView({ behavior: 'smooth' });">Get Started</button>
+<button class="secondary learn-more-btn">Learn More</button>
+<div id="learnMoreContent" style="display: none; margin-top: 20px;">
+<h3>How ReBuild Paris Would Work</h3>
+<p>
+          Inspired by the success of the ETH Zurich pilot project, ReBuild Paris envisions a city-wide initiative to identify and reclaim reusable building components from renovation and demolition sites across Paris. By applying a similar AI-driven approach, we aim to merge architecture, sustainability, and technology in one of Europe's most historically rich urban environments.
+        </p>
+<p>
+          The initial phase would focus on the 11th and 20th arrondissements — neighborhoods known for their dynamic urban renewal, architectural diversity, and active construction permits. These zones offer an ideal testbed for large-scale circular economy practices.
+        </p>
+<h4>Our Process</h4>
+<ul>
+<li><strong>Data Collection:</strong> Use Google Street View, municipal archives, and drone scans to collect high-resolution facade imagery.</li>
+<li><strong>AI Analysis:</strong> Apply deep learning models (e.g., Mask R-CNN, MobileNetV2) to detect components like wooden shutters, balconies, wrought iron, clay tiles, and ornate windows.</li>
+<li><strong>Digital Mapping:</strong> Build an interactive map of reusable components per building, ranked by quantity, thermal efficiency, and accessibility.</li>
+<li><strong>Material Routing:</strong> Connect detected components with local reuse warehouses, architectural firms, and new construction projects.</li>
+</ul>
+<h4>Expected Outcomes</h4>
+<ul>
+<li>Over <strong>4,000 m²</strong> of reusable elements identified in two test districts alone</li>
+<li>A 30% reduction in demolition-related waste for participating sites</li>
+<li>Creation of a public-facing reuse inventory and digital material passport per building</li>
+<li>Collaboration between city officials, reuse centers, and architecture students</li>
+</ul>
+<p>
+          ReBuild Paris isn’t just a concept — it’s a scalable vision for transforming how cities view demolition, giving new life to old materials and embedding circularity into the urban fabric.
+        </p>
+</div>
+</div>
+<div class="hero-img">
+<img alt="Circular construction illustration" src="images/intro.png"/>
+</div>
+</section>
+<section id="overview">
+<h2 class="section-title">Core Concepts</h2>
+<div class="subsection-boxes">
+<div class="sub-box">
+<div>
+<h3>Artificial Intelligence</h3>
+<p>Our model scans facades using Google Street View and detects components with MobileNetV2 and Mask R-CNN.</p>
+</div>
+<img alt="AI" src="images/ai.png"/>
+</div>
+<div class="sub-box">
+<div>
+<h3>Reusable Materials</h3>
+<p>We identify bricks, doors, windows and tiles that are suitable for reuse based on thermal quality and condition.</p>
+</div>
+<img alt="Materials" src="images/mat.png"/>
+</div>
+<div class="sub-box">
+<div>
+<h3>Urban Impact</h3>
+<p>Helps cities reduce waste, plan sustainable projects, and connect demolition with circular design strategies.</p>
+</div>
+<img alt="Urban" src="images/city.png"/>
+</div>
+</div>
+<a class="button-link" href="https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/552226/5/EnablingComponentReuseFromExistingBuildings.pdf" target="_blank">
+      Read the Full Research Paper
+    </a>
+</section>
+<section id="zurich">
+<h2 class="section-title">Pilot Project: Zurich</h2>
+<p>
+    As part of the ETH Zurich project, a facade analysis was conducted across two districts of Zurich (Kreis 4 &amp; 5), comprising over 2,300 buildings.
+    The AI pipeline was applied to extract reusable components such as windows, doors, and tiles using images from Google Street View.
+    Results showed that 76% of detected facade elements were reusable, and up to 4,500 m² of wood cladding could potentially be recovered from a single urban area.
+    Examples below show typical facade elements and their reuse potential.
+  </p>
+<div class="swiper swiper-container">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img alt="Zurich wooden building" src="images/zh1.jpeg"/><p class="source-text"><a href="https://arquitecturaviva.com/works/pabellon-deportivo-temporal-gloriarank-en-zurich" target="_blank">Source</a></p></div>
+<div class="swiper-slide"><img alt="Circular building section" src="images/zh2.jpeg"/><p class="source-text"><a href="https://issuu.com/birkhauser.ch/docs/978-3-0356-2109-9_hebelheisel_blick_ins_buch_engli" target="_blank">Source</a></p></div>
+<div class="swiper-slide"><img alt="Zurich city aerial view" src="images/zh3.jpeg"/><p class="source-text"><a href="https://trellis.net/article/transforming-buildings-circular-material-banks/" target="_blank">Source</a></p></div>
+</div>
+<div class="swiper-pagination"></div>
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+</div>
+</section>
+<section id="video">
+<h2 class="section-title">See It in Action</h2>
+<p>This short video explains how data, architecture, and machine learning come together to enable a sustainable future.</p>
+<div class="video-wrapper">
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/3EKddd_dAt0" title="YouTube video player" width="560"></iframe>
+</div>
+</section>
+<section id="join">
+<h2 class="section-title">Join Us</h2>
+<div data-tf-live="01JWBH2NBR63JP0NP9WS8SHPWQ"></div>
+<script src="https://embed.typeform.com/next/embed.js"></script>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  document.querySelector('.learn-more-btn').addEventListener('click', () => {
+    const content = document.getElementById('learnMoreContent');
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+  });
+</script>
+<!-- FULL SITE CONTENT END -->
+</div>
+<div style="margin-top: 30px;">
+<a href="https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/552226/5/EnablingComponentReuseFromExistingBuildings.pdf" style="color: var(--main-green); font-weight: bold; text-decoration: underline;" target="_blank">Read the ETH Zurich Paper</a>
+</div>
+<script>
+  function enterSite() {
+    document.getElementById('intro-overlay').style.opacity = '0';
+    document.body.style.overflow = 'auto';
+    setTimeout(() => {
+      document.getElementById('intro-overlay').style.display = 'none';
+      const main = document.getElementById('main-content');
+      main.style.display = 'block';
+      setTimeout(() => main.style.opacity = '1', 50);
+    }, 500);
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+</body>
+</html>
